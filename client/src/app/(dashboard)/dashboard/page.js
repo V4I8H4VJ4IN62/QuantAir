@@ -159,10 +159,11 @@ const Homepage = () => {
                     <div className="text-base text-muted-foreground font-medium">
                       {key}
                     </div>
-                    <div className="text-3xl font-bold">
+                    <div className="text-3xl font-bold flex flex-row justify-center items-center gap-3">
                       {loading
                         ? "--"
                         : predictions?.xgboost?.[key]?.toFixed(2) ?? "--"}
+                      <div className="text-lg">(ug/m³)</div>
                     </div>
                   </div>
                   {predictions?.xgboost && (
@@ -203,10 +204,11 @@ const Homepage = () => {
                     <div className="text-base text-muted-foreground font-medium">
                       {key}
                     </div>
-                    <div className="text-3xl font-bold">
+                    <div className="text-3xl font-bold flex flex-row justify-center items-center gap-3">
                       {loading
                         ? "--"
                         : predictions?.qboost?.[key]?.toFixed(2) ?? "--"}
+                      <div className="text-lg">(ug/m³)</div>
                     </div>
                   </div>
                   {predictions?.qboost && (
@@ -274,41 +276,37 @@ const Homepage = () => {
         <h3 className="text-xl font-semibold text-foreground mt-4">
           Spatial Pollution Map of India
         </h3>
-        <MagicCard
-          title="Spatial Pollution Trends"
-          icon={<MapPin className="w-5 h-5 text-purple-500" />}
-        >
-          <div className="relative h-[600px] mt-4">
-            <iframe
-              src="http://localhost:5000/map?lat=22.9734&lon=78.6569&zoom=5"
-              className="w-full h-full rounded-md border"
-              title="Pollution Map"
-            />
-            <div className="absolute bottom-4 left-4 bg-white dark:bg-zinc-800 text-black dark:text-white p-4 rounded-lg border shadow-lg text-sm space-y-1">
-              <h4 className="font-bold">PM10 Levels (µg/m³)</h4>
-              <div>
-                <span className="w-4 h-4 inline-block bg-green-500 mr-2"></span>{" "}
-                ≤ 50 (Good)
-              </div>
-              <div>
-                <span className="w-4 h-4 inline-block bg-yellow-400 mr-2"></span>{" "}
-                51–100 (Satisfactory)
-              </div>
-              <div>
-                <span className="w-4 h-4 inline-block bg-orange-500 mr-2"></span>{" "}
-                101–250 (Moderate)
-              </div>
-              <div>
-                <span className="w-4 h-4 inline-block bg-red-600 mr-2"></span>{" "}
-                251–350 (Poor)
-              </div>
-              <div>
-                <span className="w-4 h-4 inline-block bg-red-900 mr-2"></span> ≥
-                351 (Severe)
-              </div>
+
+        <div className="relative h-[600px] mt-4">
+          <iframe
+            src="http://localhost:5000/map?lat=22.9734&lon=78.6569&zoom=5"
+            className="w-full h-full rounded-md border"
+            title="Pollution Map"
+          />
+          <div className="absolute bottom-4 left-4 bg-white dark:bg-zinc-800 text-black dark:text-white p-4 rounded-lg border shadow-lg text-sm space-y-1">
+            <h4 className="font-bold">PM10 Levels (µg/m³)</h4>
+            <div>
+              <span className="w-4 h-4 inline-block bg-green-500 mr-2"></span> ≤
+              50 (Good)
+            </div>
+            <div>
+              <span className="w-4 h-4 inline-block bg-yellow-400 mr-2"></span>{" "}
+              51–100 (Satisfactory)
+            </div>
+            <div>
+              <span className="w-4 h-4 inline-block bg-orange-500 mr-2"></span>{" "}
+              101–250 (Moderate)
+            </div>
+            <div>
+              <span className="w-4 h-4 inline-block bg-red-600 mr-2"></span>{" "}
+              251–350 (Poor)
+            </div>
+            <div>
+              <span className="w-4 h-4 inline-block bg-red-900 mr-2"></span> ≥
+              351 (Severe)
             </div>
           </div>
-        </MagicCard>
+        </div>
       </div>
     </BlurFade>
   );
