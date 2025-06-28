@@ -279,7 +279,7 @@ const Homepage = () => {
 
         <div className="relative h-[600px] mt-4">
           <iframe
-            src="http://localhost:5000/map?lat=22.9734&lon=78.6569&zoom=5"
+            src="https://quantair-pollutionmap.onrender.com/map?lat=22.9734&lon=78.6569&zoom=5"
             className="w-full h-full rounded-md border"
             title="Pollution Map"
           />
