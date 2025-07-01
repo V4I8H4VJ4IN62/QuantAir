@@ -33,6 +33,12 @@ const Homepage = () => {
   const [cityList, setCityList] = useState([]);
   const [selectedDate, setSelectedDate] = useState(today);
   const [loading, setLoading] = useState(false);
+  // 🚗 T: Traffic | 🏭 I: Industry | 🚧 C: Construction | 🌿 G: Green Cover | 🚌 P: Public Transport
+  const [T, setT] = useState(0);
+  const [I, setI] = useState(0);
+  const [C, setC] = useState(0);
+  const [G, setG] = useState(0);
+  const [P, setP] = useState(0);
 
   const containerRef = useRef(null);
   const fromRef = useRef(null);
@@ -49,7 +55,7 @@ const Homepage = () => {
     if (!selectedCity || !selectedDate) return;
 
     const encodedCity = encodeURIComponent(selectedCity);
-    const url = `http://localhost:5001/predict?city=${encodedCity}&date=${selectedDate}`;
+    const url = `http://localhost:5001/predict?city=${encodedCity}&date=${selectedDate}&T=${T}&I=${I}&C=${C}&G=${G}&P=${P}`;
     setLoading(true);
 
     fetch(url)
@@ -67,16 +73,16 @@ const Homepage = () => {
       .then((res) => res.json())
       .then((data) => setAccuracy(data))
       .catch((err) => console.error("❌ Metrics fetch failed:", err));
-  }, [selectedCity, selectedDate]);
+  }, [selectedCity, selectedDate, T, I, C, G, P]);
 
   const getPollutionStatus = (parameter, value) => {
     const statusMap = {
-      Ozone: [3, 6, 9, 12], // Previously: [5, 10, 20, 60]
-      "Nitrogen Dioxide": [5, 10, 20, 30], // Previously: [10, 20, 40, 80]
-      "Carbon Monoxide": [0.3, 0.5, 1, 2], // Previously: [0.5, 1, 2, 4]
-      "Sulphur Dioxide": [5, 10, 20, 30], // Previously: [10, 20, 40, 80]
-      "Particulate Matter": [8, 15, 30, 60], // Previously: [10, 20, 50, 100]
-      Benzene: [0.5, 1, 2, 3], // Previously: [1, 2, 5, 10]
+      Ozone: [3, 6, 9, 12],
+      "Nitrogen Dioxide": [5, 10, 20, 30],
+      "Carbon Monoxide": [300, 500, 1000, 2000], // converted to µg/m³
+      "Sulphur Dioxide": [5, 10, 20, 30],
+      "Particulate Matter": [8, 15, 30, 60],
+      Benzene: [0.5, 1, 2, 3],
     };
 
     const levels = statusMap[parameter];
@@ -129,6 +135,63 @@ const Homepage = () => {
               onChange={(e) => setSelectedDate(e.target.value)}
               className="border rounded-md px-3 py-2 text-sm bg-background text-foreground shadow"
             />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full text-foreground text-sm mt-6">
+            <label>
+              🚗 Traffic Volume Reduction (T%) — {T}%
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value={T}
+                onChange={(e) => setT(+e.target.value)}
+                className="w-full"
+              />
+            </label>
+            <label>
+              🏭 Industrial Emission Control (I%) — {I}%
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value={I}
+                onChange={(e) => setI(+e.target.value)}
+                className="w-full"
+              />
+            </label>
+            <label>
+              🚧 Construction Activity Cut (C%) — {C}%
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value={C}
+                onChange={(e) => setC(+e.target.value)}
+                className="w-full"
+              />
+            </label>
+            <label>
+              🌿 Green Cover Increase (G%) — {G}%
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value={G}
+                onChange={(e) => setG(+e.target.value)}
+                className="w-full"
+              />
+            </label>
+            <label>
+              🚌 Public Transport Uptake (P%) — {P}%
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value={P}
+                onChange={(e) => setP(+e.target.value)}
+                className="w-full"
+              />
+            </label>
           </div>
         </div>
 
@@ -279,7 +342,7 @@ const Homepage = () => {
 
         <div className="relative h-[600px] mt-4">
           <iframe
-            src="https://quantair-pollutionmap.onrender.com/map?lat=22.9734&lon=78.6569&zoom=5"
+            src="http://127.0.0.1:5000/map?lat=22.9734&lon=78.6569&zoom=5"
             className="w-full h-full rounded-md border"
             title="Pollution Map"
           />
