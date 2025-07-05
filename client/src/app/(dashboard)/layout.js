@@ -4,7 +4,6 @@ import { cookies } from "next/headers";
 
 export default async function DashboardLayout({ children }) {
   const cookieStore = await cookies();
-  const defaultOpen = cookieStore.get("sidebar_state")?.value === "true";
 
   return (
     <div className="min-h-screen">

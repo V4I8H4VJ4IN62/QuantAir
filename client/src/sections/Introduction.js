@@ -2,7 +2,6 @@
 
 import Tags from "@/components/ui/tags";
 import {
-  useMotionValueEvent,
   useScroll,
   useTransform,
   motion,
