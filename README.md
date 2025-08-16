@@ -14,6 +14,8 @@ Air pollution is one of the most critical challenges in Indian cities, impacting
 - **Visualization:** Next.js dashboard with charts, policy sliders & maps  
 - **Impact Modeling:** Simulates traffic, industry, construction, green cover, and transport policies  
 
+![Introduction Section](Quantair_Designs/introduction.png)
+
 ---
 
 ## ⚙️ System Architecture
@@ -55,15 +57,22 @@ Air pollution is one of the most critical challenges in Indian cities, impacting
 ✅ QBoost achieved **better accuracy** than XGBoost by capturing complex nonlinear pollution patterns.  
 ⚠️ Slight latency trade-off due to quantum simulation.
 
+![Metrics Section](Quantair_Designs/dashboard_2.png)
+
 ---
 
 ## 📌 Features
+
+![Sliders Section](Quantair_Designs/dashboard_1.png)
+![Map](Quantair_Designs/dashboard_3.png)
 
 - 🌆 **City & Model Selection** (toggle between XGBoost and QBoost)  
 - 🎛️ **Policy Simulation** (adjust real-time pollution levels with sliders)  
 - 📊 **Interactive Charts** (XGBoost vs QBoost predictions)  
 - 🗺️ **Geospatial Map** (Folium heatmaps of Indian cities)  
 - 📈 **Performance Metrics** (MAE, RMSE, accuracy improvement)  
+
+![Features Section](Quantair_Designs/features.png)
 
 ---
 
