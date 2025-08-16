@@ -2,6 +2,7 @@
 
 🚀 **QuantAir** is a hybrid AI system that integrates **classical ML (XGBoost)** and **Quantum Neural Networks (QNNs)** to predict and visualize urban air pollution in Indian cities. It includes an interactive web dashboard with **policy impact simulations, geospatial maps, and real-time trend visualizations**.
 
+![Hero Section](Quantair_Designs/hero.png)
 
 ## 🌍 Project Overview
 
