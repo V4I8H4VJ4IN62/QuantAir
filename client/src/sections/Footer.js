@@ -253,7 +253,7 @@ export default function Footer() {
               <p className="mt-2">
                 <span className="text-slate-400">View source code on </span>
                 <Link
-                  href="https://github.com/Niranjan1Praveen/DropConnect-Development"
+                  href="https://github.com/V4I8H4VJ4IN62/QuantAir"
                   className="inline-flex items-center gap-1 text-emerald-400 hover:text-cyan-400 underline decoration-emerald-400/50 hover:decoration-cyan-400 transition-all duration-300 font-medium"
                   target="_blank"
                 >
