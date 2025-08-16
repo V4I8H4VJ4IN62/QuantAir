@@ -58,7 +58,7 @@ export default function Hero() {
       </div>
 
       {/* Enhanced Headline with quantum typewriter effect */}
-      <motion.div className="relative z-10 max-w-4xl">
+      <motion.div className="relative z-10 max-w-5xl">
         <motion.div
           className="absolute -inset-4 bg-gradient-to-r from-emerald-500/10 via-cyan-500/10 to-blue-500/10 rounded-2xl blur-xl"
           animate={{

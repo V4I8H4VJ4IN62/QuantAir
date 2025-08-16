@@ -156,7 +156,7 @@ export default function Features() {
           
           {/* Enhanced animated underline */}
           <motion.div
-            className="h-1 bg-gradient-to-r from-transparent via-emerald-400 via-cyan-400 to-transparent mx-auto rounded-full relative"
+            className="h-1 bg-gradient-to-r from-transparent via-emerald-400 to-transparent mx-auto rounded-full relative"
             initial={{ width: 0 }}
             whileInView={{ width: "60%" }}
             transition={{ duration: 1.5, ease: "easeOut", delay: 0.5 }}

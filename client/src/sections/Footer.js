@@ -204,7 +204,7 @@ export default function Footer() {
 
           {/* Quantum separator line */}
           <motion.div
-            className="w-full h-px bg-gradient-to-r from-transparent via-emerald-400/40 via-cyan-400/40 to-transparent mb-8"
+            className="w-full h-px bg-gradient-to-r from-transparent via-emerald-400/40 to-transparent mb-8"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             transition={{ delay: 0.6, duration: 1.2, ease: "easeOut" }}

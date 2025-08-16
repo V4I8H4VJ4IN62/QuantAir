@@ -11,7 +11,6 @@ export function MagicCard({
   gradientFrom = "#00e5ff",
   gradientTo = "#7c4dff",
 }) {
-  // --- Hooks (order never changes) ---
   const cardRef = useRef(null);
   const mouseX = useMotionValue(-gradientSize);
   const mouseY = useMotionValue(-gradientSize);
@@ -27,41 +26,16 @@ export function MagicCard({
     [mouseX, mouseY]
   );
 
-  const handleMouseOut = useCallback(
-    (e) => {
-      if (!e.relatedTarget) {
-        document.removeEventListener("mousemove", handleMouseMove);
-        mouseX.set(-gradientSize);
-        mouseY.set(-gradientSize);
-      }
-    },
-    [handleMouseMove, mouseX, gradientSize, mouseY]
-  );
-
-  const handleMouseEnter = useCallback(() => {
-    document.addEventListener("mousemove", handleMouseMove);
+  const handleMouseOut = useCallback(() => {
     mouseX.set(-gradientSize);
     mouseY.set(-gradientSize);
-  }, [handleMouseMove, mouseX, gradientSize, mouseY]);
-
-  useEffect(() => {
-    document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseout", handleMouseOut);
-    document.addEventListener("mouseenter", handleMouseEnter);
-
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseout", handleMouseOut);
-      document.removeEventListener("mouseenter", handleMouseEnter);
-    };
-  }, [handleMouseEnter, handleMouseMove, handleMouseOut]);
+  }, [mouseX, mouseY, gradientSize]);
 
   useEffect(() => {
     mouseX.set(-gradientSize);
     mouseY.set(-gradientSize);
   }, [gradientSize, mouseX, mouseY]);
 
-  // --- Render ---
   return (
     <div
       ref={cardRef}
@@ -70,20 +44,7 @@ export function MagicCard({
         className
       )}
     >
-      {/* Outer gradient glow */}
-      <motion.div
-        className="pointer-events-none absolute inset-0 rounded-[inherit] opacity-80 group-hover:opacity-100 transition duration-300"
-        style={{
-          background: useMotionTemplate`
-            radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px,
-            ${gradientFrom}, 
-            ${gradientTo}, 
-            transparent 100%)
-          `,
-        }}
-      />
-
-      {/* Card background */}
+      {/* Card background only */}
       <div className="absolute inset-px bg-gradient-to-br from-slate-900/40 via-emerald-950/30 to-cyan-950/40 backdrop-blur-xl rounded-[inherit]" />
 
       {/* Content */}

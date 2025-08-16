@@ -7,7 +7,7 @@ export default async function DashboardLayout({ children }) {
     <div className="min-h-screen">
           <main className="w-full">
             <AppNavbar />
-            <div className="px-4">{children}</div>
+            <div className="w-full">{children}</div>
           </main>
     </div>
   );

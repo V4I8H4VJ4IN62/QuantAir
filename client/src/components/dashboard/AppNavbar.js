@@ -37,19 +37,20 @@ const AppNavbar = () => {
           </div>
         </Link>
 
-        {/* CENTER - Optional Brand Element */}
-        <div className="hidden md:flex gap-2">
-          <div className="flex gap-2 px-4 py-2 bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 backdrop-blur-sm border border-emerald-400/20 rounded-2xl">
-            <Activity className="w-4 h-4 text-emerald-400" />
-            <span className="text-sm font-bold text-transparent bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text">
-              QuantAir Dashboard
-            </span>
-            <Sparkles className="w-4 h-4 text-cyan-400" />
-          </div>
-        </div>
-
-        {/* RIGHT - User Menu */}
+        {/* RIGHT - Brand + User Menu */}
         <div className="flex items-center gap-4">
+          {/* Brand Element beside User Menu */}
+          <div className="hidden md:flex gap-2">
+            <div className="flex gap-2 px-4 py-2 bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 backdrop-blur-sm border border-emerald-400/20 rounded-2xl">
+              <Activity className="w-4 h-4 text-emerald-400" />
+              <span className="text-sm font-bold text-transparent bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text">
+                QuantAir Dashboard
+              </span>
+              <Sparkles className="w-4 h-4 text-cyan-400" />
+            </div>
+          </div>
+
+          {/* User Menu */}
           <DropdownMenu>
             <DropdownMenuTrigger className="group outline-none">
               <div className="relative p-1 bg-gradient-to-r from-white/10 to-white/5 hover:from-emerald-500/20 hover:to-cyan-500/20 backdrop-blur-sm border border-white/20 hover:border-emerald-400/40 rounded-2xl transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-emerald-500/25">
