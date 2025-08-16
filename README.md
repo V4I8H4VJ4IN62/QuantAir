@@ -58,13 +58,12 @@ Air pollution is one of the most critical challenges in Indian cities, impacting
 ⚠️ Slight latency trade-off due to quantum simulation.
 
 ![Metrics Section](Quantair_Designs/dashboard_2.png)
-
+![Map](Quantair_Designs/dashboard_3.png)
 ---
 
 ## 📌 Features
 
 ![Sliders Section](Quantair_Designs/dashboard_1.png)
-![Map](Quantair_Designs/dashboard_3.png)
 
 - 🌆 **City & Model Selection** (toggle between XGBoost and QBoost)  
 - 🎛️ **Policy Simulation** (adjust real-time pollution levels with sliders)  
